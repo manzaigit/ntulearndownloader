@@ -1,13 +1,19 @@
 import os, requests
 from bs4 import BeautifulSoup
 from urllib.parse import urlparse, urljoin
+from settings import NTULEARN_URL
 
 # insert loginmethod here
-def ntu_login():
-    pass
+def ntu_login(username, password):
+
+    values = {'username': username,
+              'password': password}
+
+    r = requests.post(NTULEARN_URL, data=values)
+    print(r.content)
 
 
-# scraper and downloader :)
+scraper and downloader :)
 givenurl = input("Enter URL: ")
 
 html_code = requests.get(givenurl)
