@@ -14,4 +14,5 @@ All you have to do is to input the URL and download path :D
 
 # Using the application
 - Start the application by entering your ntulearn username and password and the application will guide you through
-		python main.py -u <username> -p <password>
+
+        python main.py -u <username> -p <password>
