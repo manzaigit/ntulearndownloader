@@ -1,4 +1,5 @@
 import sys, getopt
+from ntudownloader import ntu_login
 
 def usage():
     print("Usage: python main.py [-h|help] [-u|username=<args>] [-p|password=<args>]")
@@ -23,6 +24,7 @@ def main(argv):
         else:
             assert False, "unhandled option"
 
+    # ntu_login(username, password)
     print("Your ntu username is: " + username)
     print("Your ntu password is: " + password)
 
