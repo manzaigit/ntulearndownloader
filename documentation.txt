@@ -16,6 +16,7 @@ Features to implement:
 !!- login function @ ntulearn
 - security features: limiting input types
 - GUI @ tkinter, tkfiledialog @ askdirectory(**options)
+- download progressbar 
 
 - download lecture videos
 - user can choose which docs to download 
