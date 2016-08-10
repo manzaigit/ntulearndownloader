@@ -8,9 +8,12 @@ All you have to do is to input the URL and download path :D
 # Getting started
 - Install python
 - Install pip
-- Install required packages using
+- Run as administrator in windows powershell and run the following command
 
-		pip install -r requirements.txt
+		cd ntulearndownloader
+		Set-ExecutionPolicy bypass
+		.\dev.ps1
+		venv\scripts\activate
 
 # Using the application
 - Start the application by entering your ntulearn username and password and the application will guide you through
