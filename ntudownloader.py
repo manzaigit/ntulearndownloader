@@ -13,7 +13,7 @@ def ntu_login(username, password):
     print(r.content)
 
 
-scraper and downloader :)
+# scraper and downloader :)
 givenurl = input("Enter URL: ")
 
 html_code = requests.get(givenurl)
