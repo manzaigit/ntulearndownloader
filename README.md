@@ -5,12 +5,19 @@ Ever felt frustrated when you have to download your lecture notes so labouriousl
 We felt so too and here's a tool to help all of us! :)
 All you have to do is to input the URL and download path :D
 
-# Getting started
+# Getting started (One time setup)
 - Install python
 - Install pip
-- Install required packages using
+- Run as administrator in windows powershell and run the following command
 
-		pip install -r requirements.txt
+		cd ntulearndownloader
+		Set-ExecutionPolicy bypass
+		.\dev.ps1
+
+# Execute before running application
+- Run the following command to activate the virtual environment
+
+		venv\scripts\activate
 
 # Using the application
 - Start the application by entering your ntulearn username and password and the application will guide you through
