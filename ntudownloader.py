@@ -16,21 +16,18 @@ def ntu_login(username, password):
 def page_pdf_downloader(givenurl,download_path,s):
 
     html_code = s.get(givenurl)
-    #print(html_code.content)
-    clean_html = BeautifulSoup(html_code.content,"html.parser")#,exclude_encodings=[])
-    #print(repr(clean_html))
-    #print(clean_html.prettify())
+    clean_html = BeautifulSoup(html_code.content,"html.parser")
     valid_filelinks = []
     valid_filenames = []
+
     for link in clean_html.find_all("a", href=True):
-        print(link)
         parsed_link = urlparse(link.get('href'))
-        print(parsed_link)
         if parsed_link.path[:12] == '/bbcswebdav/':
             valid_filelinks.append(link.get('href'))
             valid_filenames.append(link.text[1:])
-    for valid_links in valid_filelinks:
-        print(valid_links)
+
+    for name in valid_filenames:
+        print(name)
     print("%d file(s) discovered." % len(valid_filelinks))
 
     if(len(valid_filelinks)):
