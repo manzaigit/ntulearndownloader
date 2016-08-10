@@ -1,12 +1,10 @@
-import os
+import os, requests
+from bs4 import BeautifulSoup
 from urllib.parse import urlparse, urljoin
 
-import requests
-from bs4 import BeautifulSoup
-
-
 # insert loginmethod here
-
+def ntu_login():
+    pass
 
 
 # scraper and downloader :)
@@ -43,4 +41,3 @@ if(len(valid_filelinks)):
     else: print("byebye! :)")
 else:
     print("There aren't any files to download. Byebye!")
-
