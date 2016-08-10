@@ -24,7 +24,8 @@ def main(argv):
         else:
             assert False, "unhandled option"
 
-    # ntu_login(username, password)
+    s = ntu_login(username, password)
+    print(s)
     print("Your ntu username is: " + username)
     print("Your ntu password is: " + password)
 

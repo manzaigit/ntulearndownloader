@@ -6,14 +6,14 @@ from settings import NTULEARN_URL
 # insert loginmethod here
 def ntu_login(username, password):
 
-    values = {'username': username,
-              'password': password}
+    values = {'username': username, 'password': password}
 
-    r = requests.post(NTULEARN_URL, data=values)
-    print(r.content)
+    s = requests.Session()
+    s.post(NTULEARN_URL, data=values)
+
+    return s
 
 
-# scraper and downloader :)
 givenurl = input("Enter URL: ")
 
 html_code = requests.get(givenurl)
