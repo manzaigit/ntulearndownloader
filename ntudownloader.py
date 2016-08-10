@@ -6,7 +6,7 @@ from settings import NTULEARN_URL
 # insert loginmethod here
 def ntu_login(username, password):
 
-    values = {'username': username, 'password': password}
+    values = {'user_id': username, 'password': password}
 
     s = requests.Session()
     s.post(NTULEARN_URL, data=values)
