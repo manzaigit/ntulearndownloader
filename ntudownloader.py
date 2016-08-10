@@ -13,19 +13,22 @@ def ntu_login(username, password):
 
     return s
 
-def page_pdf_downloader(givenurl,download_path):
-    #givenurl = input("Enter URL: ")
+def page_pdf_downloader(givenurl,download_path,s):
 
-    html_code = requests.get(givenurl)
-    clean_html = BeautifulSoup(html_code.content,"html.parser")
-
+    html_code = s.get(givenurl)
+    #print(html_code.content)
+    clean_html = BeautifulSoup(html_code.content,"html.parser")#,exclude_encodings=[])
+    #print(repr(clean_html))
+    #print(clean_html.prettify())
     valid_filelinks = []
-
+    valid_filenames = []
     for link in clean_html.find_all("a", href=True):
+        print(link)
         parsed_link = urlparse(link.get('href'))
-        if parsed_link.path[-4:] == '.pdf':
+        print(parsed_link)
+        if parsed_link.path[:12] == '/bbcswebdav/':
             valid_filelinks.append(link.get('href'))
-
+            valid_filenames.append(link.text[1:])
     for valid_links in valid_filelinks:
         print(valid_links)
     print("%d file(s) discovered." % len(valid_filelinks))
@@ -35,13 +38,11 @@ def page_pdf_downloader(givenurl,download_path):
 
         if decide_to_save.upper() == 'Y':
 
-            #download_path = input("Enter download path: ")
-
-            for file in valid_filelinks:
+            for file,name in zip(valid_filelinks,valid_filenames):
                 download_link = urljoin(givenurl, file)
 
-                f = open(download_path + "\\" + os.path.basename(file), mode = 'wb')
-                f.write(requests.get(download_link).content)
+                f = open(download_path + "\\" + name, mode = 'wb')    # might not need to import os anymore
+                f.write(s.get(download_link).content)
                 f.close()
 
         else: print("byebye! :)")

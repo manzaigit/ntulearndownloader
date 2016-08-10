@@ -1,12 +1,12 @@
 NTULearn Downloader!
 
 How it works
-- user to provide URL of page with pdf download links 
+- user to provide URL of page with pdf download links
 	# General URL structure: scheme://netloc/path;parameters?query#fragment
 - use requests to get html code
-- use BeautifulSoup to parse html and get the links with pdf 
+- use BeautifulSoup to parse html and get the links with pdf
 - show the list of items it has found, will start download on user prompt (Y/N)
-- user to input download path 
+- user to input download path
 
 Version 1.0
 - scrapes pdf files from a provided link. very effectively.
@@ -16,14 +16,14 @@ Features to implement:
 !!- login function @ ntulearn
 - security features: limiting input types
 - GUI @ tkinter, tkfiledialog @ askdirectory(**options) http://tkinter.unpythonic.net/wiki/tkFileDialog?highlight=%28filedialog%29
-- download progressbar 
+- download progressbar
 
-- download lecture videos
-- user can choose which docs to download 
+- user can choose which docs to download
+- download lecture recordings + tell user if website is down?
 - recursive search through all directories given the content page
-- recursive search through all directories given the course code 
+- recursive search through all directories given the course code
 
-- anyway to do it without having the users to install the packages? 
+- anyway to do it without having the users to install the packages?
 
 
 
@@ -34,7 +34,7 @@ Requests documentation: http://docs.python-requests.org/en/latest/
 Requests documentation (pdf): https://media.readthedocs.org/pdf/requests/master/requests.pdf
 
 
-##for link in soup.find_all("a"): # for line-by-line readablity 
+##for link in soup.find_all("a"): # for line-by-line readablity
 ##    print(link.get("href"))
 
 ##    print(link.text) # to get the text of the links, useful!

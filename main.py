@@ -1,5 +1,5 @@
 import sys, getopt
-from ntudownloader import ntu_login
+from ntudownloader import ntu_login, page_pdf_downloader
 
 def usage():
     print("Usage: python main.py [-h|help] [-u|username=<args>] [-p|password=<args>]")
@@ -25,6 +25,9 @@ def main(argv):
             assert False, "unhandled option"
 
     s = ntu_login(username, password)
+    givenurl = input("Enter NTULearn URL containing links to documents: ")
+    download_path = input("Enter download path: ")
+    page_pdf_downloader(givenurl,download_path,s)
     print(s)
     print("Your ntu username is: " + username)
     print("Your ntu password is: " + password)
