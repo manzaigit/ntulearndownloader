@@ -15,7 +15,7 @@ Version 1.0
 Features to implement:
 !!- login function @ ntulearn
 - security features: limiting input types
-- GUI @ tkinter, tkfiledialog @ askdirectory(**options)
+- GUI @ tkinter, tkfiledialog @ askdirectory(**options) http://tkinter.unpythonic.net/wiki/tkFileDialog?highlight=%28filedialog%29
 - download progressbar 
 
 - download lecture videos
