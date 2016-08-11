@@ -1,9 +1,9 @@
 import os, requests
 from bs4 import BeautifulSoup
-from urllib.parse import urlparse, urljoin
 from settings import NTULEARN_URL
+from urllib.parse import urlparse, urljoin
 
-# insert loginmethod here
+
 def ntu_login(username, password):
 
     auth = {'user_id': username, 'password': password}
@@ -13,10 +13,11 @@ def ntu_login(username, password):
 
     return s
 
-def page_pdf_downloader(givenurl,download_path,s):
 
-    html_code = s.get(givenurl)
-    clean_html = BeautifulSoup(html_code.content,"html.parser")
+def page_pdf_downloader(download_url, download_path, s):
+
+    html_code = s.get(download_url)
+    clean_html = BeautifulSoup(html_code.content, "html.parser")
     valid_filelinks = []
     valid_filenames = []
 
@@ -30,18 +31,20 @@ def page_pdf_downloader(givenurl,download_path,s):
         print(name)
     print("%d file(s) discovered." % len(valid_filelinks))
 
-    if(len(valid_filelinks)):
-        decide_to_save = input("Would you like to save them all? (Y/N): ")
+    if len(valid_filelinks) < 1:
+        return
 
-        if decide_to_save.upper() == 'Y':
+    decide_to_save = input("Would you like to save them all? (Y/N): ")
+    if decide_to_save.upper() != 'Y':
+        return
 
-            for file,name in zip(valid_filelinks,valid_filenames):
-                download_link = urljoin(givenurl, file)
-
-                f = open(download_path + "\\" + name, mode = 'wb')    # might not need to import os anymore
+    num_files_downloaded = len(valid_filelinks)
+    for file, name in zip(valid_filelinks, valid_filenames):
+        download_link = urljoin(download_url, file)
+        try:
+            with open(download_path + "\\" + name, mode='wb') as f:
                 f.write(s.get(download_link).content)
-                f.close()
+        except IOError:
+            num_files_downloaded -= 1
 
-        else: print("byebye! :)")
-    else:
-        print("There aren't any files to download. Byebye!")
+    print("%d file(s) was downloaded" % num_files_downloaded)
