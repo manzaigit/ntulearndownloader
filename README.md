@@ -12,12 +12,12 @@ All you have to do is to input the URL and download path :D
 
 		cd ntulearndownloader
 		Set-ExecutionPolicy bypass
-		.\dev.ps1
+		.\dev.ps1  # mac ./dev.sh
 
 # Execute before running application
 - Run the following command to activate the virtual environment
 
-		venv\scripts\activate
+		venv\scripts\activate	# mac venv/bin/activate
 
 # Using the application
 - Start the application by entering your ntulearn username and password and the application will guide you through
