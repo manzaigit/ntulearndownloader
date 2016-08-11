@@ -31,18 +31,20 @@ def page_pdf_downloader(download_url, download_path, s):
         print(name)
     print("%d file(s) discovered." % len(valid_filelinks))
 
-    if(len(valid_filelinks)):
+    if len(valid_filelinks) < 1:
+        return
 
-        decide_to_save = input("Would you like to save them all? (Y/N): ")
-        if decide_to_save.upper() == 'Y':
+    decide_to_save = input("Would you like to save them all? (Y/N): ")
+    if decide_to_save.upper() != 'Y':
+        return
 
-            for file, name in zip(valid_filelinks, valid_filenames):
-                download_link = urljoin(download_url, file)
-
-                f = open(download_path + "\\" + name, mode = 'wb')    # might not need to import os anymore
+    num_files_downloaded = len(valid_filelinks)
+    for file, name in zip(valid_filelinks, valid_filenames):
+        try:
+            download_link = urljoin(download_url, file)
+            with open(download_path + "\\" + name, mode='wb') as f:
                 f.write(s.get(download_link).content)
-                f.close()
+        except IOError:
+            num_files_downloaded -= 1
 
-        else: print("byebye! :)")
-    else:
-        print("There aren't any files to download. Byebye!")
+    print("%d file(s) was downloaded" % num_files_downloaded)
