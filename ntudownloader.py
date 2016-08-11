@@ -40,8 +40,8 @@ def page_pdf_downloader(download_url, download_path, s):
 
     num_files_downloaded = len(valid_filelinks)
     for file, name in zip(valid_filelinks, valid_filenames):
+        download_link = urljoin(download_url, file)
         try:
-            download_link = urljoin(download_url, file)
             with open(download_path + "\\" + name, mode='wb') as f:
                 f.write(s.get(download_link).content)
         except IOError:
