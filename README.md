@@ -11,7 +11,7 @@ All you have to do is to input the URL and download path :D
 - Run as administrator in windows powershell and run the following command
 
 		cd ntulearndownloader
-		Set-ExecutionPolicy bypass
+		Set-ExecutionPolicy bypass # mac ignore this 
 		.\dev.ps1  # mac ./dev.sh
 
 # Execute before running application
