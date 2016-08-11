@@ -27,7 +27,7 @@ def main(argv):
     s = ntu_login(username, password)
     givenurl = input("Enter NTULearn URL containing links to documents: ")
     download_path = input("Enter download path: ")
-    page_pdf_downloader(givenurl,download_path,s)
+    page_pdf_downloader(givenurl, download_path, s)
 
 if __name__ == "__main__":
     main(sys.argv[1:])

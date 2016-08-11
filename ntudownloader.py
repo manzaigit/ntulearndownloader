@@ -1,7 +1,8 @@
 import os, requests
 from bs4 import BeautifulSoup
-from urllib.parse import urlparse, urljoin
 from settings import NTULEARN_URL
+from urllib.parse import urlparse, urljoin
+
 
 # insert loginmethod here
 def ntu_login(username, password):
