@@ -1,4 +1,4 @@
-import sys, getopt
+import getopt, os, sys
 from ntudownloader import ntu_login, page_pdf_downloader
 
 def usage():
