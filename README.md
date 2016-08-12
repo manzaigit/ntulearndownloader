@@ -8,6 +8,7 @@ All you have to do is to input the URL and download path :D
 # Getting started (One time setup)
 - Install python (3.5.1)
 - Install pip
+- Install virtualenv for python
 - Run as administrator in windows powershell and run the following command
 
 		cd ntulearndownloader
