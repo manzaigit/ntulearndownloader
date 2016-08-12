@@ -34,8 +34,7 @@ def page_pdf_downloader(download_url, download_path, s):
     if len(valid_filelinks) < 1:
         return
 
-    decide_to_save = input("Would you like to save them all? (Y/N): ")
-    if decide_to_save.upper() != 'Y':
+    if input("Would you like to save them all? (Y/N): ").upper() != 'Y':
         return
 
     num_files_downloaded = len(valid_filelinks)
@@ -47,4 +46,4 @@ def page_pdf_downloader(download_url, download_path, s):
         except IOError:
             num_files_downloaded -= 1
 
-    print("%d file(s) was downloaded" % num_files_downloaded)
+    print("%d file(s) was downloaded from %s" % (num_files_downloaded, download_url))
